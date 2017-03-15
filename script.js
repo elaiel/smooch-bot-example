@@ -26,7 +26,7 @@ module.exports = new Script({
     },
     
     navigation: {
-        prompt: (bot) => bot.say('Was genau möchtest du wissen? (Lebenslauf, Privates, Kontakt)'),
+        prompt: (bot) => bot.say('Was genau möchtest du wissen? (Lebenslauf, Privates, Kontakt) %[Lebenslauf](postback:Lebenslauf)'),
         receive: (bot, message) => {
             const navoption = message.text;
             switch (navoption) {
