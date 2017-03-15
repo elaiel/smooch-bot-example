@@ -27,24 +27,24 @@ module.exports = new Script({
     },
     
     navigation: {
-        prompt: (bot) => bot.say('Was genau möchtest du wissen?)?'),
+        prompt: (bot) => bot.say('Was genau möchtest du wissen? (Lebenslauf, Privates, Kontakt)'),
         receive: (bot, message) => {
             const navoption = message.text;
             switch (navoption) {
                 case "Lebenslauf":
                     return bot.setProp('navoption', navoption)
                         .then(() => bot.say('OK, ich schau mal nach seinem Lebenslauf!'))
-                        .then(() => 'listOptions');
+                        .then(() => 'LebenslaufOptions');
             }
         }
     },
     
-    listOptions: {          
+    LebenslaufOptions: {          
         prompt: (bot) => bot.say('%[Berufliche Laufbahn](postback:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),
         receive: (bot, message) => {
             switch (txt) {
                 case "berufe":
-                    return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
+                    return bot.say('Auswahl: Berufliche Laufbahn?')
                         .then(() => 'berufe');
                 case "akademia":
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
@@ -61,6 +61,31 @@ module.exports = new Script({
                 case "quiz":
                     //
                     return false;
+            }
+        }
+    },
+    
+     berufe: {
+        prompt: (bot) => bot.say('Hmm, wo genau hat Michael doch gleich gearbeitet bzw. wo arbeitet er... %[alle anzeigen](postback:alleberufe) %[ZHAW](postback:zhaw) %[HILTI](postback:hilti)  %[Universität St. Gallen](postback:hsg)  %[SAP](postback:sap)'),
+        receive: (bot, message) => {
+            const navoption = message.text;
+            switch (navoption) {
+                case "zhaw":
+                    return bot.setProp('navoption', navoption)
+                        .then(() => bot.say('Also die ZHAW'))
+                        .then(() => 'zhaw');
+            }
+        }
+    },
+
+    zhaw: {
+        prompt: (bot) => bot.say('An der ZHAW ist Michael Leiter der Fachstelle für integrierte Kommunikation und Dozent für digitales Marketing und Social Media. \n Er startete im Mai 2015 und beschäftigt sich hauptsächlich mit den folgenden Themen: \n Studiengangsleiter für Digitales Marketing mit Themenschwerpunkten in den Bereichen Digitales Marketing \n Social Media \n Service Design \n Design Thinking \n Customer-Experience-Management. \n %[Akademische Laufbahn](postback:akademia)'),
+        receive: (bot, message) => {
+            const navoption = message.text;
+            switch (navoption) {
+                case "berufe":
+                    return bot.say('Zurück zu den Berufen?')
+                        .then(() => 'berufe');
             }
         }
     },
