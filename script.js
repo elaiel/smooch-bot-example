@@ -34,14 +34,6 @@ module.exports = new Script({
                     return bot.setProp('navoption', navoption)
                         .then(() => bot.say('OK, ich schau mal nach seinem Lebenslauf!'))
                         .then(() => 'listOptions');
-                case "ourServices":
-                    return bot.setProp('navoption', navoption)
-                        .then(() => bot.say('Our  Services!'))
-                        .then(() => 'askAge');
-                case "successStories":
-                    return bot.setProp('navoption', navoption)
-                        .then(() => bot.say('Success Stories!'))
-                        .then(() => 'askAge');
             }
         }
     },
