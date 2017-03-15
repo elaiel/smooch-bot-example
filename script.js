@@ -16,11 +16,11 @@ module.exports = new Script({
     },
 
     askName: {
-        prompt: (bot) => bot.say('Aber zuerst: Wie heisst Du (Damit ich dich auch korrekt ansprechen kann)?'),
+        prompt: (bot) => bot.say('Aber zuerst: Wie heisst Du? (Damit ich dich auch korrekt ansprechen kann)'),
         receive: (bot, message) => {
             const name = message.text;
             return bot.setProp('name', name)
-                .then(() => bot.say('Super! Danke! Also ich nenne dich dann ab jetzt ${name}'))
+                .then(() => bot.say('Super! Danke! Also ich nenne dich dann ab jetzt' ${name}))
                 .then(() => 'navigation');
         }
     },
@@ -42,6 +42,7 @@ module.exports = new Script({
         prompt: (bot) => bot.say('%[Berufliche Laufbahn](postback:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),
         receive: (bot, message) => {
             const llselection = message.text;
+            return bot.say(${llselection})
             switch (llselection) {
                 case "Berufliche Laufbahn":
                     return bot.setProp('llselection', llselection)
