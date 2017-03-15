@@ -20,7 +20,7 @@ module.exports = new Script({
         receive: (bot, message) => {
             const name = message.text;
             return bot.setProp('name', name)
-                .then(() => bot.say('Super! Danke! Also ich nenne dich dann ab jetzt' ${name})
+                .then(() => bot.say('Super! Danke! Also ich nenne dich dann ab jetzt ${name}!`))
                 .then(() => 'navigation');
         }
     },
