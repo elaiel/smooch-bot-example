@@ -10,7 +10,7 @@ module.exports = new Script({
 
     start: {
         receive: (bot) => {
-            return bot.say('Hi! I\'m Michaels Bot!')
+            return bot.say('Hi! Ich bin Michaels persönlicher Bot! Willst du etwas über ihn erfahren, frage mich einfach!')
                 .then(() => 'askName');
         }
     },
@@ -29,7 +29,7 @@ Ist das OK? Ich bleibe mal beim Du, das Michael noch nicht herausgefunden hat, w
     finish: {
         receive: (bot, message) => {
             return bot.getProp('name')
-                .then((name) => bot.say(`${name}, Entschuldige bitte, das habe ich nicht verstanden ` +
+                .then((name) => bot.say(`${name}, entschuldige bitte, das habe ich nicht verstanden ` +
                         'da muss ich wohl noch mehr Wörter lernen!'))
                 .then(() => 'finish');
         }
