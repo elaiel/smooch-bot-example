@@ -26,7 +26,7 @@ module.exports = new Script({
     },
     
     navigation: {
-        prompt: (bot) => bot.say('Was genau möchtest du wissen? (Lebenslauf, Privates, Kontakt) %[Lebenslauf](postback:Lebenslauf)'),
+        prompt: (bot) => bot.say('Was genau möchtest du wissen? (Lebenslauf, Privates, Kontakt)'),
         receive: (bot, message) => {
             const navoption = message.text;
             switch (navoption) {
@@ -39,7 +39,7 @@ module.exports = new Script({
     },
     
     LebenslaufOptions: {          
-        prompt: (bot) => bot.say('%[Berufliche Laufbahn](postback:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),      
+        prompt: (bot) => bot.say('%[Berufliche Laufbahn](llselection:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),      
           receive: (bot, message) => {
             const llselection = message.text;
             switch (llselection) {
