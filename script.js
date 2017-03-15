@@ -43,7 +43,7 @@ module.exports = new Script({
         receive: (bot, message) => {
             const llselection = message.text;
             switch (llselection) {
-                case "berufe":
+                case "Berufliche Laufbahn":
                     return bot.setProp('llselection', llselection)
                     return bot.say('Auswahl: Berufliche Laufbahn?')
                         .then(() => 'berufe');
