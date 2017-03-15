@@ -61,7 +61,7 @@ module.exports = new Script({
         }
     },
     
-     berufe: {
+    berufe: {
         prompt: (bot) => bot.say('Hmm, wo genau hat Michael doch gleich gearbeitet bzw. wo arbeitet er... %[alle anzeigen](postback:alleberufe) %[ZHAW](postback:zhaw) %[HILTI](postback:hilti)  %[Universität St. Gallen](postback:hsg)  %[SAP](postback:sap)'),
         receive: (bot, message) => {
             const navoption = message.text;
