@@ -5,14 +5,14 @@ const scriptRules = require('./script.json');
 
 module.exports = new Script({
     processing: {
-        prompt: (bot) => bot.say('Beep boop...'),
+//        prompt: (bot) => bot.say('Beep boop...'),
         receive: () => 'processing'
     },
 
     start: {
         receive: (bot) => {
             return bot.say('Hi! Ich bin Michaels persönlicher Bot! Willst Du etwas über ihn erfahren, frage mich einfach!')
-                .then(() => 'askName');
+                .then(() => 'speak');
         }
     },
 
