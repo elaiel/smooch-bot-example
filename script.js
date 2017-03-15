@@ -21,7 +21,7 @@ module.exports = new Script({
             const name = message.text;
             return bot.setProp('name', name)
                 .then(() => bot.say(`Super! Danke! Also ich nenne dich dann ab jetzt ${name} Ist das OK? %[Ja](postback:yes) %[Nein](postback:no)`))
-                prompt: (bot) => bot.say('Ok, also was genau willst du über Michael wissen? Frage nach "Lebenslauf"'),
+   //             prompt: (bot) => bot.say('Ok, also was genau willst du über Michael wissen? Frage nach "Lebenslauf"'),
                 .then(() => 'navigation');
         }
     },
