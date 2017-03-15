@@ -27,6 +27,7 @@ module.exports = new Script({
     },
     
     navigation: {
+        prompt: (bot) => bot.say('Was genau möchtest du wissen?)?'),
         receive: (bot, message) => {
             const navoption = message.text;
             switch (navoption) {
@@ -34,8 +35,6 @@ module.exports = new Script({
                     return bot.setProp('navoption', navoption)
                         .then(() => bot.say('OK, ich schau mal nach seinem Lebenslauf!'))
                         .then(() => 'listOptions');
-                else
-                   .then(() => 'navigation'); 
             }
         }
     },
@@ -66,12 +65,12 @@ module.exports = new Script({
         }
     },
 
-//    finish: {
-//        receive: (bot, message) => {
-//            return bot.getProp('name')
-//                .then((name) => bot.say(`Tut mir leid, ${name}, das konnte ich nicht verstehen ` +
-//                        'da muss ich noch ein paar mehr Worte lernen!'))
-//                .then(() => 'finish');
+    finish: {
+        receive: (bot, message) => {
+            return bot.getProp('name')
+                .then((name) => bot.say(`Tut mir leid, ${name}, das konnte ich nicht verstehen ` +
+                        'da muss ich noch ein paar mehr Worte lernen!'))
+                .then(() => 'navigation');
         }
     }
 });
