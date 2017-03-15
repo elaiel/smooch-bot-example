@@ -39,29 +39,23 @@ module.exports = new Script({
     },
     
     LebenslaufOptions: {          
-        prompt: (bot) => bot.say('%[Berufliche Laufbahn](postback:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),
-        receive: (bot, message) => {
+        prompt: (bot) => bot.say('%[Berufliche Laufbahn](postback:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),      
+          receive: (bot, message) => {
             const llselection = message.text;
-            return bot.say(`${llselection}`)
             switch (llselection) {
-                case "Berufliche Laufbahn":
-                    return bot.setProp('llselection', llselection)
+                case "berufe":
                     return bot.say('Auswahl: Berufliche Laufbahn?')
                         .then(() => 'berufe');
                 case "akademia":
-                    return bot.setProp('llselection', llselection)
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
                         .then(() => 'akademia');
                 case "skills":
-                    return bot.setProp('llselection', llselection)
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
                         .then(() => 'skills');
                 case "sprachen":
-                    return bot.setProp('llselection', llselection)
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
                         .then(() => 'sprachen');
                 case "projekte":
-                    return bot.setProp('llselection', llselection)
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
                         .then(() => 'projekte');
             }
