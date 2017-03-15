@@ -42,7 +42,7 @@ module.exports = new Script({
         prompt: (bot) => bot.say('%[Berufliche Laufbahn](postback:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),
         receive: (bot, message) => {
             const llselection = message.text;
-            return bot.say(${llselection})
+            return bot.say(`${llselection}`)
             switch (llselection) {
                 case "Berufliche Laufbahn":
                     return bot.setProp('llselection', llselection)
