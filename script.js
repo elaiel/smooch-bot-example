@@ -41,20 +41,26 @@ module.exports = new Script({
     LebenslaufOptions: {          
         prompt: (bot) => bot.say('%[Berufliche Laufbahn](postback:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),
         receive: (bot, message) => {
+            const llselection = message.text;
             switch (txt) {
                 case "berufe":
+                    return bot.setProp('llselection', llselection)
                     return bot.say('Auswahl: Berufliche Laufbahn?')
                         .then(() => 'berufe');
                 case "akademia":
+                    return bot.setProp('llselection', llselection)
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
                         .then(() => 'akademia');
                 case "skills":
+                    return bot.setProp('llselection', llselection)
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
                         .then(() => 'skills');
                 case "sprachen":
+                    return bot.setProp('llselection', llselection)
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
                         .then(() => 'sprachen');
                 case "projekte":
+                    return bot.setProp('llselection', llselection)
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
                         .then(() => 'projekte');
             }
@@ -64,10 +70,10 @@ module.exports = new Script({
     berufe: {
         prompt: (bot) => bot.say('Hmm, wo genau hat Michael doch gleich gearbeitet bzw. wo arbeitet er... %[alle anzeigen](postback:alleberufe) %[ZHAW](postback:zhaw) %[HILTI](postback:hilti)  %[Universität St. Gallen](postback:hsg)  %[SAP](postback:sap)'),
         receive: (bot, message) => {
-            const navoption = message.text;
-            switch (navoption) {
+            const berufeselection = message.text;
+            switch (berufeselection) {
                 case "zhaw":
-                    return bot.setProp('navoption', navoption)
+                    return bot.setProp('berufeselection', berufeselection)
                         .then(() => bot.say('Also die ZHAW'))
                         .then(() => 'zhaw');
             }
@@ -77,8 +83,8 @@ module.exports = new Script({
     zhaw: {
         prompt: (bot) => bot.say('An der ZHAW ist Michael Leiter der Fachstelle für integrierte Kommunikation und Dozent für digitales Marketing und Social Media. \n Er startete im Mai 2015 und beschäftigt sich hauptsächlich mit den folgenden Themen: \n Studiengangsleiter für Digitales Marketing mit Themenschwerpunkten in den Bereichen Digitales Marketing \n Social Media \n Service Design \n Design Thinking \n Customer-Experience-Management. \n %[Akademische Laufbahn](postback:akademia)'),
         receive: (bot, message) => {
-            const navoption = message.text;
-            switch (navoption) {
+            const zhawselection = message.text;
+            switch (zhawselection) {
                 case "berufe":
                     return bot.say('Zurück zu den Berufen?')
                         .then(() => 'berufe');
