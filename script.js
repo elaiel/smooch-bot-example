@@ -36,7 +36,7 @@ module.exports = new Script({
                         .then(() => 'listOptions');
                 case "ourServices":
                     return bot.setProp('navoption', navoption)
-                        .then(() => bot.say('Our Services!'))
+                        .then(() => bot.say('Our  Services!'))
                         .then(() => 'askAge');
                 case "successStories":
                     return bot.setProp('navoption', navoption)
