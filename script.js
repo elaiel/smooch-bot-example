@@ -25,6 +25,7 @@ Ist das OK? %[Ja](postback:yes) %[Nein](postback:no)`))
                 .then(() => 'listOptions');
         }
     },
+    
     listOptions: {
         prompt: (bot) => bot.say('Ok, also was genau willst du über Michael wissen?'),
         prompt: (bot) => bot.say('%[Berufliche Laufbahn](postback:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),
