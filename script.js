@@ -29,7 +29,7 @@ Ist das OK? Ich bleibe mal beim Du, das Michael noch nicht herausgefunden hat, w
     finish: {
         receive: (bot, message) => {
             return bot.getProp('name')
-                .then((name) => bot.say(`${name}, entschuldige bitte, das habe ich nicht verstanden ` +
+                .then((name) => bot.say(`${name}, entschuldige bitte, das habe ich noch nicht verstanden ` +
                         'da muss ich wohl noch mehr Wörter lernen!'))
                 .then(() => 'finish');
         }
