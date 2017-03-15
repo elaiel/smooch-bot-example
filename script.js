@@ -16,12 +16,12 @@ module.exports = new Script({
     },
 
     askName: {
-        prompt: (bot) => bot.say('What\'s your name?'),
+        prompt: (bot) => bot.say('Wie heisst du?'),
         receive: (bot, message) => {
             const name = message.text;
             return bot.setProp('name', name)
-                .then(() => bot.say(`Great! I'll call you ${name}
-Is that OK? %[Yes](postback:yes) %[No](postback:no)`))
+                .then(() => bot.say(`Super! Dann nenne ich dich ${name}
+Ist das OK? Ich bleibe mal beim Du, das Michael noch nicht herausgefunden hat, wie die verschiedenen Anreden integriert werden können. %[Yes](postback:yes) %[No](postback:no)`))
                 .then(() => 'finish');
         }
     },
