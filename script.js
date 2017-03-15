@@ -74,7 +74,7 @@ Ist das OK? Ich bleibe mal beim Du, das Michael noch nicht herausgefunden hat, w
                 .then(getSilent)
                 .then(processMessage);
         }
-    }
+    },
 
     finish: {
         receive: (bot, message) => {
