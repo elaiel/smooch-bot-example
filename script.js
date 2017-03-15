@@ -20,14 +20,33 @@ module.exports = new Script({
         receive: (bot, message) => {
             const name = message.text;
             return bot.setProp('name', name)
-                .then(() => bot.say(`Super! Danke! Also ich nenne dich dann ab jetzt ${name}
-Ist das OK? %[Ja](postback:yes) %[Nein](postback:no)`))
-                .then(() => 'listOptions');
+                .then(() => bot.say(`Super! Danke! Also ich nenne dich dann ab jetzt ${name} Ist das OK? %[Ja](postback:yes) %[Nein](postback:no)`))
+                prompt: (bot) => bot.say('Ok, also was genau willst du über Michael wissen? Frage nach "Lebenslauf"'),
+                .then(() => 'navigation');
         }
     },
     
-    listOptions: {
-        prompt: (bot) => bot.say('Ok, also was genau willst du über Michael wissen?'),
+    navigation: {
+        receive: (bot, message) => {
+            const navoption = message.text;
+            switch (navoption) {
+                case "Lebenslauf":
+                    return bot.setProp('navoption', navoption)
+                        .then(() => bot.say('OK, ich schau mal nach seinem Lebenslauf!'))
+                        .then(() => 'listOptions');
+                case "ourServices":
+                    return bot.setProp('navoption', navoption)
+                        .then(() => bot.say('Our Services!'))
+                        .then(() => 'askAge');
+                case "successStories":
+                    return bot.setProp('navoption', navoption)
+                        .then(() => bot.say('Success Stories!'))
+                        .then(() => 'askAge');
+            }
+        }
+    },
+    
+    listOptions: {          
         prompt: (bot) => bot.say('%[Berufliche Laufbahn](postback:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),
         receive: (bot, message) => {
             switch (txt) {
