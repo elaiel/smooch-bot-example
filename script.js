@@ -34,6 +34,14 @@ module.exports = new Script({
                     return bot.setProp('navoption', navoption)
                         .then(() => bot.say('OK, ich schau mal nach seinem Lebenslauf!'))
                         .then(() => 'LebenslaufOptions');
+                case "Privates":
+                    return bot.setProp('navoption', navoption)
+                        .then(() => bot.say('Oha also private Informationen .... hmmmm ....'))
+                        .then(() => 'LebenslaufOptions');
+                case "Kontakt":
+                    return bot.setProp('navoption', navoption)
+                        .then(() => bot.say('Hmm, wenn Du mit Michael direkt in Kontakt treten möchtest, schreibe ihn doch direkt per Email an: \n michael.klaas At zhaw.ch.'))
+                        .then(() => 'navigation');
             }
         }
     },
