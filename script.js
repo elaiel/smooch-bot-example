@@ -53,7 +53,7 @@ module.exports = new Script({
             switch (llselection) {
                 case "berufe":
                     return bot.say('Auswahl: Berufliche Laufbahn?')
-                        .then(() => 'berufe');
+                        .then(() => 'berufeOptions');
                 case "akademia":
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
                         .then(() => 'akademia');
@@ -70,7 +70,7 @@ module.exports = new Script({
         }
     },
     
-    berufe: {
+    berufeOptions: {
         prompt: (bot) => bot.say('Hmm, wo genau hat Michael doch gleich gearbeitet bzw. wo arbeitet er... %[alle anzeigen](postback:alleberufe) %[ZHAW](postback:zhaw) %[HILTI](postback:hilti)  %[Universität St. Gallen](postback:hsg)  %[SAP](postback:sap)'),
         receive: (bot, message) => {
             const berufeselection = message.text;
