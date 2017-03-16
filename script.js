@@ -74,6 +74,19 @@ module.exports = new Script({
             }
         }
     },
+    
+        akademia: {
+        prompt: (bot) => bot.say('Hmm, wo genau hat Michael doch gleich gearbeitet bzw. wo arbeitet er... %[alle anzeigen](postback:alleberufe) %[ZHAW](postback:zhaw) %[HILTI](postback:hilti)  %[Universität St. Gallen](postback:hsg)  %[SAP](postback:sap)'),
+        receive: (bot, message) => {
+            const akademiaselection = message.text;
+            switch (akademiaselection) {
+                case "zhaw":
+                    return bot.setProp('akademiaselection', akademiaselection)
+                        .then(() => bot.say('Also die ZHAW'))
+                        .then(() => 'zhaw');
+            }
+        }
+    },
 
     zhaw: {
         prompt: (bot) => bot.say('An der ZHAW ist Michael Leiter der Fachstelle für integrierte Kommunikation und Dozent für digitales Marketing und Social Media. \n Er startete im Mai 2015 und beschäftigt sich hauptsächlich mit den folgenden Themen: \n Studiengangsleiter für Digitales Marketing mit Themenschwerpunkten in den Bereichen Digitales Marketing \n Social Media \n Service Design \n Design Thinking \n Customer-Experience-Management. \n %[Akademische Laufbahn](postback:akademia)'),
