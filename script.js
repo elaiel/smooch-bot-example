@@ -49,6 +49,7 @@ module.exports = new Script({
     LebenslaufOptions: {          
         prompt: (bot) => bot.say('%[Berufliche Laufbahn](postback:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),      
         receive: (bot, message) => {
+            console.log(message.text);
             const llselection = message.text;
             switch (llselection) {
                 case "berufe":
