@@ -26,7 +26,7 @@ module.exports = new Script({
     },
     
     navigation: {
-        prompt: (bot) => bot.say('Was genau möchtest du wissen? (Lebenslauf, Privates, Kontakt)'),
+        prompt: (bot) => bot.say('${name}, was genau möchtest du wissen? (Lebenslauf, Privates, Kontakt)'),
         receive: (bot, message) => {
             const navoption = message.text;
             switch (navoption) {
@@ -40,7 +40,7 @@ module.exports = new Script({
                         .then(() => 'LebenslaufOptions');
                 case "Kontakt":
                     return bot.setProp('navoption', navoption)
-                        .then(() => bot.say('Hmm, wenn Du mit Michael direkt in Kontakt treten möchtest, schreibe ihn doch direkt per Email an: \n michael.klaas At zhaw.ch.'))
+                        .then(() => bot.say('Hmm ${name}, wenn Du mit Michael direkt in Kontakt treten möchtest, schreibe ihn doch direkt per Email an: \n michael.klaas At zhaw.ch.'))
                         .then(() => 'navigation');
             }
         }
@@ -103,8 +103,8 @@ module.exports = new Script({
     
     berufeOptions: {
         prompt: (bot) => bot.say('Hmm, wo genau hat Michael doch gleich gearbeitet bzw. wo arbeitet er... %[alle anzeigen](postback:alleberufe) %[ZHAW](postback:zhaw) %[HILTI](postback:hilti)  %[Universität St. Gallen](postback:hsg)  %[SAP](postback:sap)'),
-        receive: (bot, message) => {
-            const berufeselection = message.text;
+        receive: (bot, postback) => {
+            const berufeselection = postback.action.payload;
             switch (berufeselection) {
                 case "zhaw":
                     return bot.setProp('berufeselection', berufeselection)
@@ -116,8 +116,8 @@ module.exports = new Script({
     
         akademia: {
         prompt: (bot) => bot.say('Michael hat eine sehr gut akademische Ausbildung durchlaufen, um genau zu sein, waren es die folgenden Stationen ... %[alle anzeigen](postback:alleberufe) %[Universität St. Gallen](postback:hsg) %[Universität Duisburg-Essen](postback:essen)  %[TU Bergakademie Freiberg](postback:Freiberg)  %[zurück](postback:LebenslaufOptions)'),
-        receive: (bot, message) => {
-            const akademiaselection = message.text;
+        receive: (bot, postback) => {
+            const akademiaselection = postback.action.payload;
             switch (akademiaselection) {
                 case "zhaw":
                     return bot.setProp('akademiaselection', akademiaselection)
@@ -129,8 +129,8 @@ module.exports = new Script({
 
     zhaw: {
         prompt: (bot) => bot.say('An der ZHAW ist Michael Leiter der Fachstelle für integrierte Kommunikation und Dozent für digitales Marketing und Social Media. \n Er startete im Mai 2015 und beschäftigt sich hauptsächlich mit den folgenden Themen: \n Studiengangsleiter für Digitales Marketing mit Themenschwerpunkten in den Bereichen Digitales Marketing \n Social Media \n Service Design \n Design Thinking \n Customer-Experience-Management. \n %[Akademische Laufbahn](postback:akademia)'),
-        receive: (bot, message) => {
-            const zhawselection = message.text;
+        receive: (bot, postback) => {
+            const zhawselection = postback.action.payload;
             switch (zhawselection) {
                 case "berufe":
                     return bot.say('Zurück zu den Berufen?')
