@@ -74,7 +74,7 @@ module.exports = new Script({
         receive: (bot,postback) => {
             const llselection = postback.action.payload;
             
-            bot.say(message.text);
+            bot.say(postback.action.payload);
             switch (llselection) {
                 case "berufe":
                     return bot.setProp('llselection', llselection)
