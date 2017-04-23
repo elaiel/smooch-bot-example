@@ -90,7 +90,7 @@ module.exports = new Script({
                         .then(() => 'skills');
                 case "sprachen":
                     return bot.setProp('llselection', llselection)
-                        .then(bot.say('I'm looking for Michaels ... Sprachfähigkeiten ...'))
+                        .then(bot.say('I m looking for Michaels ... Sprachfähigkeiten ...'))
                         .then(() => 'sprachen');
                 case "projekte":
                     return bot.setProp('llselection', llselection)
