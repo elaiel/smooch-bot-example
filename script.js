@@ -55,7 +55,7 @@ module.exports = new Script({
             switch (llselection) {
                 case "berufe":
                     bot.setProp('llselection', llselection)
-                    return bot.say('Auswahl: Berufliche Laufbahn?')
+                    bot.say('Auswahl: Berufliche Laufbahn?')
                         .then(() => 'berufeOptions');
                 case "akademia":
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
