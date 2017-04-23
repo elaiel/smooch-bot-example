@@ -111,8 +111,21 @@ function handlePostback(req, res) {
     if (!postback || !postback.action) {
         res.end();
     }
+    
+    if (postback.action.payload === 0) {
+        return res.end();
+    }
 
-    createBot(req.body.appUser).say(`You said: ${postback.action.text} (payload was: ${postback.action.payload})`)
+    const stateMachine = new StateMachine({
+        script,
+        bot: createBot(req.body.appUser)
+    });
+
+    const smoochPayload = postback.action.payload;
+    
+    stateMachine.receiveMessage(postback)
+    //createBot(req.body.appUser).say(`You said: ${postback.action.text} (payload was: ${postback.action.payload})`)
+    //createBot(req.body.appUser).say(`${}`)
         .then(() => res.end());
 }
 
