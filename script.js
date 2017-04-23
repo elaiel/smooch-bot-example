@@ -115,7 +115,7 @@ module.exports = new Script({
     },
     
         akademia: {
-        prompt: (bot) => bot.say('Hmm, wo genau hat Michael doch gleich gearbeitet bzw. wo arbeitet er... %[alle anzeigen](postback:alleberufe) %[ZHAW](postback:zhaw) %[HILTI](postback:hilti)  %[Universität St. Gallen](postback:hsg)  %[SAP](postback:sap)'),
+        prompt: (bot) => bot.say('Michael hat eine sehr gut akademische Ausbildung durchlaufen, um genau zu sein, waren es die folgenden Stationen ... %[alle anzeigen](postback:alleberufe) %[Universität St. Gallen](postback:hsg) %[Universität Duisburg-Essen](postback:essen)  %[TU Bergakademie Freiberg](postback:Freiberg)  %[zurück](postback:LebenslaufOptions)'),
         receive: (bot, message) => {
             const akademiaselection = message.text;
             switch (akademiaselection) {
