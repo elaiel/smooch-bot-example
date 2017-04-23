@@ -97,7 +97,7 @@ function handleMessages(req, res) {
         bot: createBot(req.body.appUser)
     });
     
-    console.log('received message: ${messages[0]}');
+    console.log(`received message: ${messages[0]}`);
 
     stateMachine.receiveMessage(messages[0])
         .then(() => res.end())
