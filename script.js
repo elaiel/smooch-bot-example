@@ -72,7 +72,7 @@ module.exports = new Script({
             }
         },
         receive: (bot,postback) => {
-               console.log(`postback received: ${postback.message.text}`);
+               console.log(`postback received: ${postback.payload}`);
         }
         
     },
