@@ -72,7 +72,27 @@ module.exports = new Script({
             }
         },
         receive: (bot,postback) => {
-               console.log(`postback received: ${postback.payload}`);
+            const llselection = postback.action.payload;
+            
+            bot.say(message.text);
+            switch (llselection) {
+                case "berufe":
+                    return bot.setProp('llselection', llselection)
+                        .then(bot.say('Auswahl: Berufliche Laufbahn?'))
+                        .then(() => 'berufeOptions');
+                case "akademia":
+                    return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
+                        .then(() => 'akademia');
+                case "skills":
+                    return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
+                        .then(() => 'skills');
+                case "sprachen":
+                    return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
+                        .then(() => 'sprachen');
+                case "projekte":
+                    return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
+                        .then(() => 'projekte');
+            }
         }
         
     },
