@@ -48,10 +48,10 @@ module.exports = new Script({
     
     LebenslaufOptions: {          
         prompt: (bot) => bot.say('%[Berufliche Laufbahn](postback:berufe) %[Akademische Laufbahn](postback:akademia) %[Skills](postback:skills)  %[Sprachen](postback:sprachen)  %[Projekte](postback:projekte)'),      
-        receive: (bot, message) => {
+        receive: (bot, postback) => {
             
-            const llselection = message.text;
-            bot.say(message.text);
+            const llselection = postback.payload;
+            bot.say(postback.payload);
             switch (llselection) {
                 case "berufe":
                     return bot.setProp('llselection', llselection)
@@ -70,9 +70,6 @@ module.exports = new Script({
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
                         .then(() => 'projekte');
             }
-        },
-        receive: (bot, postback) => { 
-            console.log(`i am in postback`);
         }
         
     },
