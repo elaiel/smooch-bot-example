@@ -55,7 +55,7 @@ module.exports = new Script({
             switch (llselection) {
                 case "berufe":
                     return bot.setProp('llselection', llselection)
-                        .then(bot.say('Auswahl: Berufliche Laufbahn?'))
+                        .then(bot.say('Auswahl: Berufliche Laufbahn also'))
                         .then(() => 'berufeOptions');
                 case "akademia":
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
@@ -78,19 +78,23 @@ module.exports = new Script({
             switch (llselection) {
                 case "berufe":
                     return bot.setProp('llselection', llselection)
-                        .then(bot.say('Auswahl: Berufliche Laufbahn?'))
+                        .then(bot.say('Auswahl: Berufliche Laufbahn also'))
                         .then(() => 'berufeOptions');
                 case "akademia":
-                    return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
+                    return bot.setProp('llselection', llselection)
+                        .then(bot.say('Akademische Laufbahn soll es also sein'))
                         .then(() => 'akademia');
                 case "skills":
-                    return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
+                    return bot.setProp('llselection', llselection)
+                        .then(bot.say('Was heisst Skills eigentlich in deutsch? Ich suche nach Fähigkeiten ...'))
                         .then(() => 'skills');
                 case "sprachen":
-                    return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
+                    return bot.setProp('llselection', llselection)
+                        .then(bot.say('I'm looking for Michaels ... Sprachfähigkeiten ...'))
                         .then(() => 'sprachen');
                 case "projekte":
-                    return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
+                    return bot.setProp('llselection', llselection)
+                        .then(bot.say('Michael ist ständing in irgendwelchen Projekten - hier ein paar Beispiele:'))
                         .then(() => 'projekte');
             }
         }
