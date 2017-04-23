@@ -70,7 +70,11 @@ module.exports = new Script({
                     return bot.say('To get a free consultation. Tell me more about yourself.\n What\'s your name?')
                         .then(() => 'projekte');
             }
+        },
+        receive: (bot, postback) => { 
+            console.log(`i am in postback`);
         }
+        
     },
     
     berufeOptions: {
